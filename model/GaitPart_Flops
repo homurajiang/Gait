@@ -1,0 +1,264 @@
+PartNet(
+  0.947 M, 64.374% Params, 3.214 GMac, 100.000% MACs, 
+  (set_layer1): SetBlock(
+    0.001 M, 0.054% Params, 0.068 GMac, 2.103% MACs, 
+    (forward_block): BasicConv2d(
+      0.001 M, 0.054% Params, 0.068 GMac, 2.103% MACs, 
+      (conv): Conv2d(0.001 M, 0.054% Params, 0.068 GMac, 2.103% MACs, 1, 32, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), bias=False)
+    )
+  )
+  (set_layer2): SetBlock(
+    0.009 M, 0.626% Params, 0.781 GMac, 24.308% MACs, 
+    (forward_block): BasicConv2d(
+      0.009 M, 0.626% Params, 0.779 GMac, 24.223% MACs, 
+      (conv): Conv2d(0.009 M, 0.626% Params, 0.779 GMac, 24.223% MACs, 32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    )
+    (pool2d): MaxPool2d(0.0 M, 0.000% Params, 0.003 GMac, 0.084% MACs, kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (set_layer3): SetBlock(
+    0.018 M, 1.257% Params, 0.392 GMac, 12.196% MACs, 
+    (forward_block): FCONV_4(
+      0.018 M, 1.257% Params, 0.392 GMac, 12.196% MACs, 
+      (conv): Sequential(
+        0.018 M, 1.257% Params, 0.392 GMac, 12.196% MACs, 
+        (0): Conv2d(0.018 M, 1.257% Params, 0.391 GMac, 12.154% MACs, 32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): LeakyReLU(0.0 M, 0.000% Params, 0.001 GMac, 0.042% MACs, negative_slope=0.01)
+      )
+    )
+  )
+  (set_layer4): SetBlock(
+    0.037 M, 2.509% Params, 0.783 GMac, 24.350% MACs, 
+    (forward_block): FCONV_4(
+      0.037 M, 2.509% Params, 0.781 GMac, 24.308% MACs, 
+      (conv): Sequential(
+        0.037 M, 2.509% Params, 0.781 GMac, 24.308% MACs, 
+        (0): Conv2d(0.037 M, 2.509% Params, 0.78 GMac, 24.265% MACs, 64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): LeakyReLU(0.0 M, 0.000% Params, 0.001 GMac, 0.042% MACs, negative_slope=0.01)
+      )
+    )
+    (pool2d): MaxPool2d(0.0 M, 0.000% Params, 0.001 GMac, 0.042% MACs, kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (set_layer5): SetBlock(
+    0.074 M, 5.019% Params, 0.391 GMac, 12.154% MACs, 
+    (forward_block): FCONV_8(
+      0.074 M, 5.019% Params, 0.391 GMac, 12.154% MACs, 
+      (conv): Sequential(
+        0.074 M, 5.019% Params, 0.391 GMac, 12.154% MACs, 
+        (0): Conv2d(0.074 M, 5.019% Params, 0.39 GMac, 12.133% MACs, 64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): LeakyReLU(0.0 M, 0.000% Params, 0.001 GMac, 0.021% MACs, negative_slope=0.01)
+      )
+    )
+  )
+  (set_layer6): SetBlock(
+    0.148 M, 10.028% Params, 0.78 GMac, 24.265% MACs, 
+    (forward_block): FCONV_8(
+      0.148 M, 10.028% Params, 0.78 GMac, 24.265% MACs, 
+      (conv): Sequential(
+        0.148 M, 10.028% Params, 0.78 GMac, 24.265% MACs, 
+        (0): Conv2d(0.148 M, 10.028% Params, 0.779 GMac, 24.244% MACs, 128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): LeakyReLU(0.0 M, 0.000% Params, 0.001 GMac, 0.021% MACs, negative_slope=0.01)
+      )
+    )
+  )
+  (MCM): MCM(
+    0.66 M, 44.880% Params, 0.02 GMac, 0.625% MACs, 
+    (conv1_0): Sequential(
+      0.017 M, 1.124% Params, 0.0 GMac, 0.015% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.004 M, 0.287% Params, 0.0 GMac, 0.004% MACs, 32, 128, kernel_size=(1,), stride=(1,))
+    )
+    (conv2_0): Sequential(
+      0.025 M, 1.681% Params, 0.001 GMac, 0.023% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.012 M, 0.844% Params, 0.0 GMac, 0.012% MACs, 32, 128, kernel_size=(3,), stride=(1,), padding=(1,))
+    )
+    (conv1_1): Sequential(
+      0.017 M, 1.124% Params, 0.0 GMac, 0.015% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.004 M, 0.287% Params, 0.0 GMac, 0.004% MACs, 32, 128, kernel_size=(1,), stride=(1,))
+    )
+    (conv2_1): Sequential(
+      0.025 M, 1.681% Params, 0.001 GMac, 0.023% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.012 M, 0.844% Params, 0.0 GMac, 0.012% MACs, 32, 128, kernel_size=(3,), stride=(1,), padding=(1,))
+    )
+    (conv1_2): Sequential(
+      0.017 M, 1.124% Params, 0.0 GMac, 0.015% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.004 M, 0.287% Params, 0.0 GMac, 0.004% MACs, 32, 128, kernel_size=(1,), stride=(1,))
+    )
+    (conv2_2): Sequential(
+      0.025 M, 1.681% Params, 0.001 GMac, 0.023% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.012 M, 0.844% Params, 0.0 GMac, 0.012% MACs, 32, 128, kernel_size=(3,), stride=(1,), padding=(1,))
+    )
+    (conv1_3): Sequential(
+      0.017 M, 1.124% Params, 0.0 GMac, 0.015% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.004 M, 0.287% Params, 0.0 GMac, 0.004% MACs, 32, 128, kernel_size=(1,), stride=(1,))
+    )
+    (conv2_3): Sequential(
+      0.025 M, 1.681% Params, 0.001 GMac, 0.023% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.012 M, 0.844% Params, 0.0 GMac, 0.012% MACs, 32, 128, kernel_size=(3,), stride=(1,), padding=(1,))
+    )
+    (conv1_4): Sequential(
+      0.017 M, 1.124% Params, 0.0 GMac, 0.015% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.004 M, 0.287% Params, 0.0 GMac, 0.004% MACs, 32, 128, kernel_size=(1,), stride=(1,))
+    )
+    (conv2_4): Sequential(
+      0.025 M, 1.681% Params, 0.001 GMac, 0.023% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.012 M, 0.844% Params, 0.0 GMac, 0.012% MACs, 32, 128, kernel_size=(3,), stride=(1,), padding=(1,))
+    )
+    (conv1_5): Sequential(
+      0.017 M, 1.124% Params, 0.0 GMac, 0.015% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.004 M, 0.287% Params, 0.0 GMac, 0.004% MACs, 32, 128, kernel_size=(1,), stride=(1,))
+    )
+    (conv2_5): Sequential(
+      0.025 M, 1.681% Params, 0.001 GMac, 0.023% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.012 M, 0.844% Params, 0.0 GMac, 0.012% MACs, 32, 128, kernel_size=(3,), stride=(1,), padding=(1,))
+    )
+    (conv1_6): Sequential(
+      0.017 M, 1.124% Params, 0.0 GMac, 0.015% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.004 M, 0.287% Params, 0.0 GMac, 0.004% MACs, 32, 128, kernel_size=(1,), stride=(1,))
+    )
+    (conv2_6): Sequential(
+      0.025 M, 1.681% Params, 0.001 GMac, 0.023% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.012 M, 0.844% Params, 0.0 GMac, 0.012% MACs, 32, 128, kernel_size=(3,), stride=(1,), padding=(1,))
+    )
+    (conv1_7): Sequential(
+      0.017 M, 1.124% Params, 0.0 GMac, 0.015% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.004 M, 0.287% Params, 0.0 GMac, 0.004% MACs, 32, 128, kernel_size=(1,), stride=(1,))
+    )
+    (conv2_7): Sequential(
+      0.025 M, 1.681% Params, 0.001 GMac, 0.023% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.012 M, 0.844% Params, 0.0 GMac, 0.012% MACs, 32, 128, kernel_size=(3,), stride=(1,), padding=(1,))
+    )
+    (conv1_8): Sequential(
+      0.017 M, 1.124% Params, 0.0 GMac, 0.015% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.004 M, 0.287% Params, 0.0 GMac, 0.004% MACs, 32, 128, kernel_size=(1,), stride=(1,))
+    )
+    (conv2_8): Sequential(
+      0.025 M, 1.681% Params, 0.001 GMac, 0.023% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.012 M, 0.844% Params, 0.0 GMac, 0.012% MACs, 32, 128, kernel_size=(3,), stride=(1,), padding=(1,))
+    )
+    (conv1_9): Sequential(
+      0.017 M, 1.124% Params, 0.0 GMac, 0.015% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.004 M, 0.287% Params, 0.0 GMac, 0.004% MACs, 32, 128, kernel_size=(1,), stride=(1,))
+    )
+    (conv2_9): Sequential(
+      0.025 M, 1.681% Params, 0.001 GMac, 0.023% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.012 M, 0.844% Params, 0.0 GMac, 0.012% MACs, 32, 128, kernel_size=(3,), stride=(1,), padding=(1,))
+    )
+    (conv1_10): Sequential(
+      0.017 M, 1.124% Params, 0.0 GMac, 0.015% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.004 M, 0.287% Params, 0.0 GMac, 0.004% MACs, 32, 128, kernel_size=(1,), stride=(1,))
+    )
+    (conv2_10): Sequential(
+      0.025 M, 1.681% Params, 0.001 GMac, 0.023% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.012 M, 0.844% Params, 0.0 GMac, 0.012% MACs, 32, 128, kernel_size=(3,), stride=(1,), padding=(1,))
+    )
+    (conv1_11): Sequential(
+      0.017 M, 1.124% Params, 0.0 GMac, 0.015% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.004 M, 0.287% Params, 0.0 GMac, 0.004% MACs, 32, 128, kernel_size=(1,), stride=(1,))
+    )
+    (conv2_11): Sequential(
+      0.025 M, 1.681% Params, 0.001 GMac, 0.023% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.012 M, 0.844% Params, 0.0 GMac, 0.012% MACs, 32, 128, kernel_size=(3,), stride=(1,), padding=(1,))
+    )
+    (conv1_12): Sequential(
+      0.017 M, 1.124% Params, 0.0 GMac, 0.015% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.004 M, 0.287% Params, 0.0 GMac, 0.004% MACs, 32, 128, kernel_size=(1,), stride=(1,))
+    )
+    (conv2_12): Sequential(
+      0.025 M, 1.681% Params, 0.001 GMac, 0.023% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.012 M, 0.844% Params, 0.0 GMac, 0.012% MACs, 32, 128, kernel_size=(3,), stride=(1,), padding=(1,))
+    )
+    (conv1_13): Sequential(
+      0.017 M, 1.124% Params, 0.0 GMac, 0.015% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.004 M, 0.287% Params, 0.0 GMac, 0.004% MACs, 32, 128, kernel_size=(1,), stride=(1,))
+    )
+    (conv2_13): Sequential(
+      0.025 M, 1.681% Params, 0.001 GMac, 0.023% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.012 M, 0.844% Params, 0.0 GMac, 0.012% MACs, 32, 128, kernel_size=(3,), stride=(1,), padding=(1,))
+    )
+    (conv1_14): Sequential(
+      0.017 M, 1.124% Params, 0.0 GMac, 0.015% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.004 M, 0.287% Params, 0.0 GMac, 0.004% MACs, 32, 128, kernel_size=(1,), stride=(1,))
+    )
+    (conv2_14): Sequential(
+      0.025 M, 1.681% Params, 0.001 GMac, 0.023% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.012 M, 0.844% Params, 0.0 GMac, 0.012% MACs, 32, 128, kernel_size=(3,), stride=(1,), padding=(1,))
+    )
+    (conv1_15): Sequential(
+      0.017 M, 1.124% Params, 0.0 GMac, 0.015% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.004 M, 0.287% Params, 0.0 GMac, 0.004% MACs, 32, 128, kernel_size=(1,), stride=(1,))
+    )
+    (conv2_15): Sequential(
+      0.025 M, 1.681% Params, 0.001 GMac, 0.023% MACs, 
+      (0): Conv1d(0.012 M, 0.837% Params, 0.0 GMac, 0.011% MACs, 128, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): ReLU(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, )
+      (2): Conv1d(0.012 M, 0.844% Params, 0.0 GMac, 0.012% MACs, 32, 128, kernel_size=(3,), stride=(1,), padding=(1,))
+    )
+    (max_pool1d_3): MaxPool1d(0.0 M, 0.000% Params, 0.0 GMac, 0.002% MACs, kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+    (avg_pool1d_3): AvgPool1d(0.0 M, 0.000% Params, 0.0 GMac, 0.002% MACs, kernel_size=(3,), stride=(1,), padding=(1,))
+    (max_pool1d_5): MaxPool1d(0.0 M, 0.000% Params, 0.0 GMac, 0.002% MACs, kernel_size=5, stride=1, padding=2, dilation=1, ceil_mode=False)
+    (avg_pool1d_5): AvgPool1d(0.0 M, 0.000% Params, 0.0 GMac, 0.002% MACs, kernel_size=(5,), stride=(1,), padding=(2,))
+  )
+)
+Computational complexity:       3.21 GMac
+Number of parameters:           1.47 M 

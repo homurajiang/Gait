@@ -1,0 +1,80 @@
+MTNet(
+  2.142 M, 67.136% Params, 18.297 GMac, 100.000% MACs, 
+  (layer1): Conv3d(0.001 M, 0.028% Params, 0.038 GMac, 0.207% MACs, 1, 32, kernel_size=(3, 3, 3), stride=(2, 1, 1), padding=(1, 1, 1))
+  (local_transform1): LocalTransform(
+    0.003 M, 0.096% Params, 0.043 GMac, 0.236% MACs, 
+    (conv): Conv3d(0.003 M, 0.096% Params, 0.043 GMac, 0.236% MACs, 32, 32, kernel_size=(3, 1, 1), stride=(3, 1, 1), bias=False)
+  )
+  (B3D_layer2_S): BasicConv3DB(
+    0.08 M, 2.503% Params, 3.374 GMac, 18.439% MACs, 
+    (conv1): Conv3d(0.055 M, 1.733% Params, 2.336 GMac, 12.766% MACs, 32, 64, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+    (conv2): Conv3d(0.018 M, 0.578% Params, 0.779 GMac, 4.255% MACs, 32, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+    (conv3): Conv3d(0.006 M, 0.193% Params, 0.26 GMac, 1.418% MACs, 32, 64, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+  )
+  (M3D_layer2_S): M3DPooling(
+    0.0 M, 0.000% Params, 0.003 GMac, 0.015% MACs, 
+    (maxpool): MaxPool3d(0.0 M, 0.000% Params, 0.003 GMac, 0.015% MACs, kernel_size=(1, 2, 2), stride=(1, 2, 2), padding=0, dilation=1, ceil_mode=False)
+  )
+  (B3D_layer2_L): BasicConv3DB(
+    0.08 M, 2.503% Params, 1.125 GMac, 6.146% MACs, 
+    (conv1): Conv3d(0.055 M, 1.733% Params, 0.779 GMac, 4.255% MACs, 32, 64, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+    (conv2): Conv3d(0.018 M, 0.578% Params, 0.26 GMac, 1.418% MACs, 32, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+    (conv3): Conv3d(0.006 M, 0.193% Params, 0.087 GMac, 0.473% MACs, 32, 64, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+  )
+  (M3D_layer2_L): M3DPooling(
+    0.0 M, 0.000% Params, 0.001 GMac, 0.005% MACs, 
+    (maxpool): MaxPool3d(0.0 M, 0.000% Params, 0.001 GMac, 0.005% MACs, kernel_size=(1, 2, 2), stride=(1, 2, 2), padding=0, dilation=1, ceil_mode=False)
+  )
+  (local_transform2): LocalTransform(
+    0.012 M, 0.385% Params, 0.043 GMac, 0.236% MACs, 
+    (conv): Conv3d(0.012 M, 0.385% Params, 0.043 GMac, 0.236% MACs, 64, 64, kernel_size=(3, 1, 1), stride=(3, 1, 1), bias=False)
+  )
+  (B3D_layer3_S1): BasicConv3DB(
+    0.319 M, 10.013% Params, 3.374 GMac, 18.439% MACs, 
+    (conv1): Conv3d(0.221 M, 6.932% Params, 2.336 GMac, 12.766% MACs, 64, 128, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+    (conv2): Conv3d(0.074 M, 2.311% Params, 0.779 GMac, 4.255% MACs, 64, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+    (conv3): Conv3d(0.025 M, 0.770% Params, 0.26 GMac, 1.418% MACs, 64, 128, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+  )
+  (B3D_layer3_S2): BasicConv3DB(
+    0.639 M, 20.026% Params, 6.748 GMac, 36.879% MACs, 
+    (conv1): Conv3d(0.442 M, 13.864% Params, 4.671 GMac, 25.531% MACs, 128, 128, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+    (conv2): Conv3d(0.147 M, 4.621% Params, 1.557 GMac, 8.510% MACs, 128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+    (conv3): Conv3d(0.049 M, 1.540% Params, 0.519 GMac, 2.837% MACs, 128, 128, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+  )
+  (B3D_layer3_L1): BasicConv3DB(
+    0.319 M, 10.013% Params, 1.125 GMac, 6.146% MACs, 
+    (conv1): Conv3d(0.221 M, 6.932% Params, 0.779 GMac, 4.255% MACs, 64, 128, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+    (conv2): Conv3d(0.074 M, 2.311% Params, 0.26 GMac, 1.418% MACs, 64, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+    (conv3): Conv3d(0.025 M, 0.770% Params, 0.087 GMac, 0.473% MACs, 64, 128, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+  )
+  (B3D_layer3_L2): BasicConv3DB(
+    0.639 M, 20.026% Params, 2.249 GMac, 12.293% MACs, 
+    (conv1): Conv3d(0.442 M, 13.864% Params, 1.557 GMac, 8.510% MACs, 128, 128, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+    (conv2): Conv3d(0.147 M, 4.621% Params, 0.519 GMac, 2.837% MACs, 128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+    (conv3): Conv3d(0.049 M, 1.540% Params, 0.173 GMac, 0.946% MACs, 128, 128, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+  )
+  (local_transform3): LocalTransform(
+    0.049 M, 1.540% Params, 0.173 GMac, 0.946% MACs, 
+    (conv): Conv3d(0.049 M, 1.540% Params, 0.173 GMac, 0.946% MACs, 128, 128, kernel_size=(3, 1, 1), stride=(3, 1, 1), bias=False)
+  )
+  (framepooling_S): FramePooling(
+    0.0 M, 0.000% Params, 0.001 GMac, 0.007% MACs, 
+    (maxpool): MaxPool3d(0.0 M, 0.000% Params, 0.001 GMac, 0.007% MACs, kernel_size=(15, 1, 1), stride=(15, 1, 1), padding=0, dilation=1, ceil_mode=False)
+  )
+  (framepooling_L): FramePooling(
+    0.0 M, 0.000% Params, 0.0 GMac, 0.002% MACs, 
+    (maxpool): MaxPool3d(0.0 M, 0.000% Params, 0.0 GMac, 0.002% MACs, kernel_size=(5, 1, 1), stride=(5, 1, 1), padding=0, dilation=1, ceil_mode=False)
+  )
+  (gmap_S): GMAP(
+    0.0 M, 0.000% Params, 0.0 GMac, 0.001% MACs, 
+    (maxpool): MaxPool3d(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, kernel_size=(1, 1, 22), stride=(1, 1, 22), padding=0, dilation=1, ceil_mode=False)
+    (avgpool): AvgPool3d(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, kernel_size=(1, 1, 22), stride=(1, 1, 22), padding=0)
+  )
+  (gmap_L): GMAP(
+    0.0 M, 0.000% Params, 0.0 GMac, 0.001% MACs, 
+    (maxpool): MaxPool3d(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, kernel_size=(1, 1, 22), stride=(1, 1, 22), padding=0, dilation=1, ceil_mode=False)
+    (avgpool): AvgPool3d(0.0 M, 0.000% Params, 0.0 GMac, 0.000% MACs, kernel_size=(1, 1, 22), stride=(1, 1, 22), padding=0)
+  )
+)
+Computational complexity:       18.3 GMac
+Number of parameters:           3.19 M  
