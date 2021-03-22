@@ -159,8 +159,16 @@ class Model:
         return batch
 
     def fit(self):
+        wandb.init(project='MT3D_baseline')
+        wandb.watch_called = False
+        config = wandb.config
+        config.batch_size = (12, 4)
+        config.test_batch_size = 1
+        config.log_interval = 100
+        wandb.watch(self.encoder, log='all')
         if self.restore_iter != 0:
             self.load(self.restore_iter)
+
 
         self.encoder.train()
         self.sample_type = 'random'
@@ -216,6 +224,16 @@ class Model:
                 _time1 = datetime.now()
 
             if self.restore_iter % 100 == 0:
+                wandb.log({
+                    'loss': loss,
+                    'hard_loss_metric':np.mean(self.hard_loss_metric),
+                    'full_loss_metric':np.mean(self.full_loss_metric),
+                    'full_loss_num':np.mean(self.full_loss_num),
+                    'mean_dist':np.mean(self.dist_list),
+                    # 'batch_acc' : batch_center_acc,
+                    'cos_weight': calWeight(self.restore_iter, self.total_iter)
+                
+                })        
                 print('iter {}:'.format(self.restore_iter), end='')
                 print(', hard_loss_metric={0:.8f}'.format(np.mean(self.hard_loss_metric)), end='')
                 print(', full_loss_metric={0:.8f}'.format(np.mean(self.full_loss_metric)), end='')
