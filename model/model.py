@@ -29,6 +29,18 @@ def de_diag(acc, each_angle=False):
         result = np.mean(result)
     return result
 
+def calWeight(i,n):
+    ratio=float(i/n)
+    x=torch.tensor(ratio*np.pi)
+    weight=(torch.sin(x-0.5*np.pi)+1)/2
+    return weight.item()
+
+def de_diag(acc, each_angle=False):
+    result = np.sum(acc - np.diag(np.diag(acc)), 1) / 10.0
+    if not each_angle:
+        result = np.mean(result)
+    return result
+
 class Model:
     def __init__(self,
                  hidden_dim,
