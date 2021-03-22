@@ -1,5 +1,5 @@
 conf = {
-    "WORK_PATH": "../MT3D_work",
+    "WORK_PATH": "../MT3D_no_bias",
     "CUDA_VISIBLE_DEVICES": "0,1,2,3",
     "data": {
         'dataset_path': "/data/huanzhang/dataset/dataset0",
@@ -18,8 +18,8 @@ conf = {
         'momentum': 0.9,
         'hard_or_full_trip': 'full',
         'batch_size': (12, 4),
-        'restore_iter': 80000,
-        'total_iter': 180000,
+        'restore_iter': 0,
+        'total_iter': 80000,
         'margin': 0.2,
         'num_workers': 3,
         'frame_num': 30,

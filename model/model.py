@@ -98,6 +98,8 @@ class Model:
         self.full_loss_num = []
         self.dist_list = []
         self.mean_dist = 0.01
+        self.test_acc = 0
+        self.best_acc = 0
 
         self.sample_type = 'all'
 
@@ -171,7 +173,7 @@ class Model:
         return batch
 
     def fit(self):
-        wandb.init(project='MT3D_baseline')
+        wandb.init(project='MT3D_conv1_nobias')
         wandb.watch_called = False
         config = wandb.config
         config.batch_size = (12, 4)
@@ -235,8 +237,15 @@ class Model:
                 print(datetime.now() - _time1)
                 _time1 = datetime.now()
 
+            # if self.restore_iter % 5000 == 0:
+            #     self.test_acc = self.test()
+            #     if self.test_acc > self.best_acc:
+            #         self.best_acc = self.test_acc
+            #     self.encoder.train()
+
             if self.restore_iter % 100 == 0:
                 wandb.log({
+                    # 'test accuracy': self.test_acc,
                     'loss': loss,
                     'hard_loss_metric':np.mean(self.hard_loss_metric),
                     'full_loss_metric':np.mean(self.full_loss_metric),
@@ -333,3 +342,48 @@ class Model:
         self.optimizer.load_state_dict(torch.load(osp.join(
             'checkpoint', self.model_name,
             '{}-{:0>5}-optimizer.ptm'.format(self.save_name, restore_iter))))
+    
+    # def test(self):
+    #     print('Transforming...')
+    #     time = datetime.now()
+    #     test = self.transform('test', 1)
+    #     print('Evaluating...')
+    #     acc = evaluation(test, conf['data'])
+    #     print('Evaluation complete. Cost:', datetime.now() - time)
+
+    #     # Print rank-1 accuracy of the best model
+    #     # e.g.
+    #     # ===Rank-1 (Include identical-view cases)===
+    #     # NM: 95.405,     BG: 88.284,     CL: 72.041
+    #     for i in range(1):
+    #         print('===Rank-%d (Include identical-view cases)===' % (i + 1))
+    #         print('NM: %.3f,\tBG: %.3f,\tCL: %.3f' % (
+    #             np.mean(acc[0, :, :, i]),
+    #             np.mean(acc[1, :, :, i]),
+    #             np.mean(acc[2, :, :, i])))
+
+    #     # Print rank-1 accuracy of the best model，excluding identical-view cases
+    #     # e.g.
+    #     # ===Rank-1 (Exclude identical-view cases)===
+    #     # NM: 94.964,     BG: 87.239,     CL: 70.355
+    #     for i in range(1):
+    #         print('===Rank-%d (Exclude identical-view cases)===' % (i + 1))
+    #         print('NM: %.3f,\tBG: %.3f,\tCL: %.3f' % (
+    #             de_diag(acc[0, :, :, i]),
+    #             de_diag(acc[1, :, :, i]),
+    #             de_diag(acc[2, :, :, i])))
+
+    #     # Print rank-1 accuracy of the best model (Each Angle)
+    #     # e.g.
+    #     # ===Rank-1 of each angle (Exclude identical-view cases)===
+    #     # NM: [90.80 97.90 99.40 96.90 93.60 91.70 95.00 97.80 98.90 96.80 85.80]
+    #     # BG: [83.80 91.20 91.80 88.79 83.30 81.00 84.10 90.00 92.20 94.45 79.00]
+    #     # CL: [61.40 75.40 80.70 77.30 72.10 70.10 71.50 73.50 73.50 68.40 50.00]
+    #     np.set_printoptions(precision=2, floatmode='fixed')
+    #     for i in range(1):
+    #         print('===Rank-%d of each angle (Exclude identical-view cases)===' % (i + 1))
+    #         print('NM:', de_diag(acc[0, :, :, i], True))
+    #         print('BG:', de_diag(acc[1, :, :, i], True))
+    #         print('CL:', de_diag(acc[2, :, :, i], True))
+
+    #     return (de_diag(acc[0, :, :, i]) + de_diag(acc[1, :, :, i]) + de_diag(acc[2, :, :, i])) / 3

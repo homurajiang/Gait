@@ -13,7 +13,7 @@ class MTNet(nn.Module):
 
         _set_in_channels = 1
         _set_channels = [32, 64, 128, 128]
-        self.layer1 = nn.Conv3d(_set_in_channels, _set_channels[0], kernel_size=(3,3,3), stride=(2,1,1), padding=1)
+        self.layer1 = nn.Conv3d(_set_in_channels, _set_channels[0], kernel_size=(3,3,3), stride=(2,1,1), padding=1,bias=False)
 
         # Transform clip 每个clip分开卷
         self.local_transform1 = LocalTransform(_set_channels[0], _set_channels[0],s=3)
