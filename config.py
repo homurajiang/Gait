@@ -1,5 +1,5 @@
 conf = {
-    "WORK_PATH": "./work",
+    "WORK_PATH": "../MT3D_work",
     "CUDA_VISIBLE_DEVICES": "0,1,2,3",
     "data": {
         'dataset_path': "/data/huanzhang/dataset/dataset0",
